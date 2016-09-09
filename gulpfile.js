@@ -1,12 +1,15 @@
 //require module
 var gulp = require('gulp'),
-    gulpSass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps');
 
 
 //gulp sass
 gulp.task('sass', function() {
     gulp.src('sass/style.scss')
-        .pipe(gulpSass())
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('css'));
 })
 
