@@ -34,11 +34,21 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('css'))
         .pipe(browserSync.reload({stream:true}));
-
 })
 
 gulp.task('sass:watch', function() {
     gulp.watch('sass/**/*.scss', ['sass']);
 })
 
-gulp.task('default',['browser-sync','sass:watch']);
+
+gulp.task('js',function(){
+   gulp.src('js/**/*.js')
+    .pipe(browserSync.reload({stream:true}));
+})
+
+gulp.task('js:watch',function(){
+  gulp.watch('js/**/*.js',['js']);
+})
+
+
+gulp.task('default',['browser-sync','sass:watch','js:watch']);
