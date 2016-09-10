@@ -22,7 +22,7 @@ gulp.task('browser-sync',function(){
 
     //proxy: "你的域名或IP";
   });
-  gulp.watch("**/*.html").on('change', reload);
+  gulp.watch("**/*.html").on('change', browserSync.reload);
 });
 
 
