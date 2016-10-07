@@ -30,7 +30,7 @@ gulp.task('sass', function() {
     gulp.src('sass/style.scss')
         .pipe(sourcemaps.init())
         .pipe(autoprefixer(autoprefixer_Config))
-        .pipe(sass(sass_Config))
+        .pipe(sass(sass_Config).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('css'))
         .pipe(browserSync.reload({stream:true}));
