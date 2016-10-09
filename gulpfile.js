@@ -18,16 +18,16 @@ var autoprefixer_Config = {
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "./templates"
+            baseDir: "./"
         }
 
         //proxy: "你的域名或IP";
     });
-    gulp.watch("/templates/**/*.html").on('change', browserSync.reload);
+    gulp.watch("**/*.html").on('change', browserSync.reload);
 });
 
 //for jade to html
-gulp.task('jade',function() {
+gulp.task('jade', function() {
     gulp.src('jade/**/*.jade')
         .pipe(jade())
         .pipe(gulp.dest('templates'))
@@ -71,4 +71,4 @@ gulp.task('js:watch', function() {
 })
 
 
-gulp.task('default', ['browser-sync','sass', 'sass:watch', 'js:watch','jade','jade:watch']);
+gulp.task('default', ['browser-sync', 'sass', 'sass:watch', 'js:watch', 'jade', 'jade:watch']);
