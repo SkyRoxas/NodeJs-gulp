@@ -30,7 +30,7 @@ gulp.task('browser-sync', function() {
 gulp.task('jade', function() {
     gulp.src('jade/**/*.jade')
         .pipe(jade())
-        .pipe(gulp.dest('templates'))
+        .pipe(gulp.dest('.'))
         .pipe(browserSync.reload({
             stream: true
         }));
